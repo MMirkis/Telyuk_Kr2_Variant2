@@ -1,0 +1,55 @@
+﻿<Window x:Class="Variant2.Views.InventoryEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Инвентарь" Height="400" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Article -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Name -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Type -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Description -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Release Date -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Status -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Button -->
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Артикул:" Grid.Row="0"/>
+        <TextBox Grid.Row="1" Text="{Binding Article}" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Название:" Grid.Row="2"/>
+        <TextBox Grid.Row="3" Text="{Binding Name}" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Тип:" Grid.Row="4"/>
+        <TextBox Grid.Row="5" Text="{Binding Type}" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Описание:" Grid.Row="6"/>
+        <TextBox Grid.Row="7" Text="{Binding Description}" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Дата выпуска:" Grid.Row="8"/>
+        <DatePicker Grid.Row="9" SelectedDate="{Binding ReleaseDate}" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Статус:" Grid.Row="10"/>
+        <ComboBox Grid.Row="11" SelectedValue="{Binding Status}" SelectedValuePath="Tag" Margin="0,5,0,10">
+            <ComboBoxItem Content="В наличии" Tag="0"/>
+            <ComboBoxItem Content="Выдана" Tag="1"/>
+            <ComboBoxItem Content="На обслуживании" Tag="2"/>
+        </ComboBox>
+
+        <Button Grid.Row="12" Content="Сохранить" Height="35" Width="120" HorizontalAlignment="Right"
+                Margin="0,20,0,0" Click="SaveButton_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="Variant2.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вход в систему" Height="250" Width="350"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Логин:"/>
+        <TextBox Grid.Row="1" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,10"/>
+
+        <TextBlock Grid.Row="2" Text="Пароль:"/>
+        <PasswordBox Grid.Row="3" x:Name="PasswordBox" Margin="0,5,0,50"/>
+
+        <StackPanel Grid.Row="4" Margin="0,40,10,0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Войти" Width="100" Margin="0,10,10,0" Click="LoginButton_Click"/>
+            <Button Content="Регистрация" Width="100" Margin="0,10,0,0" Click="RegisterButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
