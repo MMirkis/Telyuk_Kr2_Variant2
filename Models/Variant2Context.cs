@@ -27,7 +27,7 @@ public partial class Variant2Context : DbContext
     {
         modelBuilder.Entity<Inventory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Inventor__3214EC07F5A8CB32");
+            
 
             entity.ToTable("Inventory");
 
@@ -38,13 +38,13 @@ public partial class Variant2Context : DbContext
             entity.Property(e => e.Type).HasMaxLength(100);
 
             entity.HasOne(d => d.User).WithMany(p => p.Inventories)
-                .HasForeignKey(d => d.UserId)
+                .HasForeignKey(d => d.UserLogin)
                 .HasConstraintName("FK__Inventory__UserI__3B75D760");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07F7D3510E");
+            
 
             entity.HasIndex(e => e.Login, "UQ__Users__5E55825B635B01A7").IsUnique();
 

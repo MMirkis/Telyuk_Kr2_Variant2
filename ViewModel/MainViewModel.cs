@@ -55,7 +55,7 @@ namespace Variant2.ViewModels
         {
             if (SelectedInventory == null) return;
             using var db = new Variant2Context();
-            var item = db.Inventories.Find(SelectedInventory.Id);
+            var item = db.Inventories.Find(SelectedInventory.Article);
             if (item != null)
             {
                 db.Inventories.Remove(item);
@@ -68,10 +68,10 @@ namespace Variant2.ViewModels
         {
             if (SelectedInventory == null) return;
             using var db = new Variant2Context();
-            var item = db.Inventories.Find(SelectedInventory.Id);
+            var item = db.Inventories.Find(SelectedInventory.Article);
             if (item != null)
             {
-                item.UserId = _currentUser.Id;
+                item.UserLogin = _currentUser.Login;
                 item.Status = 1;
                 db.SaveChanges();
                 Refresh();
@@ -82,10 +82,10 @@ namespace Variant2.ViewModels
         {
             if (SelectedInventory == null) return;
             using var db = new Variant2Context();
-            var item = db.Inventories.Find(SelectedInventory.Id);
+            var item = db.Inventories.Find(SelectedInventory.Article);
             if (item != null)
             {
-                item.UserId = null;
+                item.UserLogin = null;
                 item.Status = 0;
                 db.SaveChanges();
                 Refresh();

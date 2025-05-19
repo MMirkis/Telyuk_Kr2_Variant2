@@ -5,8 +5,6 @@ namespace Variant2.Models;
 
 public partial class Inventory
 {
-    public int Id { get; set; }
-
     public string Article { get; set; } = null!;
 
     public string Name { get; set; } = null!;
@@ -19,7 +17,7 @@ public partial class Inventory
 
     public int Status { get; set; }
 
-    public int? UserId { get; set; }
+    public string UserLogin { get; set; }
 
     public virtual User? User { get; set; }
 }

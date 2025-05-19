@@ -52,7 +52,7 @@ namespace Variant2.ViewModels
             }
             else
             {
-                var existing = db.Inventories.Find(_original.Id);
+                var existing = db.Inventories.Find(_original.Article);
                 if (existing == null) return false;
 
                 existing.Article = Article;
